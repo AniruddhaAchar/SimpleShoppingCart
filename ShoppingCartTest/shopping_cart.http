@@ -1,0 +1,96 @@
+@shopping_cart_HostAddress = http://localhost:5105
+
+
+POST {{shopping_cart_HostAddress}}/ShoppingCart/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Name": "Fruits"
+}
+###
+
+POST {{shopping_cart_HostAddress}}/ShoppingCart/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Name": "Veg"
+}
+
+###
+
+GET {{shopping_cart_HostAddress}}/ShoppingCart/
+Accept: application/json
+
+###
+
+GET {{shopping_cart_HostAddress}}/ShoppingCart/1
+
+###
+
+GET {{shopping_cart_HostAddress}}/ShoppingCart/2
+
+###
+DELETE {{shopping_cart_HostAddress}}/ShoppingCart
+Content-Type: application/json
+Accept: application/json
+
+{   "CartId":2,
+    "Name": "Veg"
+}
+
+###
+
+GET {{shopping_cart_HostAddress}}/ShoppingCart/2
+
+###
+POST {{shopping_cart_HostAddress}}/ShoppingCart/1/items
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Name": "Mango",
+    "Quantity": 50,
+    "Price": 1.1
+}
+###
+GET {{shopping_cart_HostAddress}}/ShoppingCart/1/items
+
+Accept: application/json
+
+###
+GET {{shopping_cart_HostAddress}}/ShoppingCart/1/items/1
+
+Accept: application/json
+
+###
+GET {{shopping_cart_HostAddress}}/ShoppingCart/10000/items
+
+Accept: application/json
+
+###
+PATCH {{shopping_cart_HostAddress}}/ShoppingCart/1/items
+Content-Type: application/json
+Accept: application/json
+
+{
+    "CartItemId":1,
+    "Name": "Mango",
+    "Quantity": 500,
+    "Price": 1.1
+}
+
+###
+GET {{shopping_cart_HostAddress}}/ShoppingCart/1/items/1
+
+Accept: application/json
+
+###
+DELETE {{shopping_cart_HostAddress}}/ShoppingCart/1/items/1
+Accept: application/json
+
+###
+GET {{shopping_cart_HostAddress}}/ShoppingCart/1/items/1
+
+Accept: application/json
